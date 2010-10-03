@@ -12,7 +12,7 @@ class PredText {
       9 : ['w', 'x', 'y', 'z']
     ]
   
-  // TODO Generate vocabulary automatically.
+  // TODO Generate the vocabulary automatically.
   static final def vocabulary = [
     '43556':['hello'],
     '7253':['pale','sake','sale','rake']
@@ -20,10 +20,10 @@ class PredText {
   
   String getDigits(String word) {
     def digits = []
-    for (c in word) {
-      dictionary.each { key, value ->
-        if (value.contains(c))
-          digits << key
+    for (letter in word) {
+      dictionary.each { digit, letters ->
+        if (letters.contains(letter))
+          digits << digit
       }
     }
     return digits.join('')
