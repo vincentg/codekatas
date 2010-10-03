@@ -1,16 +1,18 @@
 class PredText {
   
-  static final def dicionary = [
-    'a':2, 'b':2, 'c':2,
-    'd':3, 'e':3, 'f':3,
-    'g':4, 'h':4, 'i':4,
-    'j':5, 'k':5, 'l':5,
-    'm':6, 'n':6, 'o':6,
-    'p':7, 'q':7, 'r':7, 's':7,
-    't':8, 'u':8, 'v':8,
-    'w':9, 'x':9, 'y':9, 'z':9
-  ]
+  static final def dictionary =
+    [
+      2 : ['a', 'b', 'c'],
+      3 : ['d', 'e', 'f'],
+      4 : ['g', 'h', 'i'],
+      5 : ['j', 'k', 'l'],
+      6 : ['m', 'n', 'o'],
+      7 : ['p', 'q', 'r', 's'],
+      8 : ['t', 'u', 'v'],
+      9 : ['w', 'x', 'y', 'z']
+    ]
   
+  // TODO Generate vocabulary automatically.
   static final def vocabulary = [
     '43556':['hello'],
     '7253':['pale','sake','sale','rake']
@@ -18,8 +20,12 @@ class PredText {
   
   String getDigits(String word) {
     def digits = []
-    for (c in word)
-      digits << dicionary[c]
+    for (c in word) {
+      dictionary.each { key, value ->
+        if (value.contains(c))
+          digits << key
+      }
+    }
     return digits.join('')
   }
   
