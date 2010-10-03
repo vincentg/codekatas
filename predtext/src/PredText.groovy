@@ -14,8 +14,8 @@ class PredText {
   
   // TODO Generate the vocabulary automatically.
   static final def vocabulary = [
-    '43556':['hello'],
-    '7253':['pale','sake','sale','rake']
+    '7253'  : ['pale', 'sake', 'sale', 'rake'],
+    '43556' : ['hello'],
   ]
   
   String getDigits(String word) {
