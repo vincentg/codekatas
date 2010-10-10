@@ -55,11 +55,11 @@ If problemStatement="Implement a class H5 which contains some method." the
 Average Word Length is 38/7=5 and the method should return 500.
 If problemStatement=" no9 . wor7ds he8re. hj.." the Average Word Length is 0,
 and the method should return 250.
-Definition
-    
+
+Definition:
+
 Class: HowEasy
 Method: pointVal
 Parameters: String
 Returns: int
 Method signature: int pointVal(String param0)
-(be sure your method is public)
