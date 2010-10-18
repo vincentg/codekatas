@@ -1,20 +1,16 @@
 all: test
 
 clean:
+	@rm -rf build
 
-test: clean
-	@echo "Testing..."
+test_js: clean
+	@echo "Testing JavaScript..."
 	@find test/*Test.js -exec v8 $1 '{}' \;
+	
+test_hs: clean
+	@echo "Testing Haskell..." 
+	@mkdir build && cp **/*.hs build
+	@cd build && find *Test.hs -exec ghc --make -O2 $1 '{}' \;
+	@find **/*Test -exec $1 '{}' \;
 
-cleanhs:
-	rm -rf tesths
-
-tesths: cleanhs
-	@echo "launching Haskell implementation tests" 
-	mkdir tesths
-	cp src/*.hs tesths
-	cp test/*.hs tesths
-	cd tesths && ghc --make -O2 SquareDigitsTest.hs 
-	tesths/SquareDigitsTest
-   
-  
+test: clean test_js test_hs
